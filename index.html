@@ -32,27 +32,6 @@
     --nav-height: 62px;
   }
 
-  body.dark {
-    --primary: #7DD3FC;
-    --primary-light: #38BDF8;
-    --accent: #2DD4BF;
-    --accent-2: #FBBF24;
-    --accent-soft: #134E4A;
-    --text: #F1F5F9;
-    --text-soft: #CBD5E1;
-    --muted: #94A3B8;
-    --bg: #0B1220;
-    --card: #131C2E;
-    --border: #243049;
-    --shadow: 0 4px 20px rgba(0, 0, 0, 0.45);
-    --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.55);
-    --gradient: linear-gradient(135deg, #0B1220 0%, #131C2E 55%, #134E4A 130%);
-    --tag-bg: #134E4A;
-    --tag-text: #CCFBF1;
-    --exp-bg: #0F172A;
-    --line: #2DD4BF;
-  }
-
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
   html { scroll-behavior: smooth; scroll-padding-top: 80px; }
@@ -63,7 +42,6 @@
     color: var(--text);
     line-height: 1.7;
     -webkit-font-smoothing: antialiased;
-    transition: background 0.4s ease, color 0.4s ease;
     padding-bottom: 80px;
     letter-spacing: 0;
     background-image:
@@ -92,14 +70,10 @@
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
     border-bottom: 1px solid var(--border);
-    transition: background 0.3s, border-color 0.3s, box-shadow 0.3s;
     height: var(--nav-height);
   }
 
-  body.dark .top-nav { background: rgba(19, 28, 46, 0.88); }
-
   .top-nav.scrolled { box-shadow: 0 4px 20px rgba(15, 42, 74, 0.08); }
-  body.dark .top-nav.scrolled { box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4); }
 
   .nav-inner {
     max-width: 920px;
@@ -171,29 +145,6 @@
 
   .nav-actions { display: flex; gap: 6px; flex-shrink: 0; }
 
-  .nav-icon-btn {
-    width: 36px;
-    height: 36px;
-    border-radius: 10px;
-    border: 1px solid var(--border);
-    background: var(--card);
-    color: var(--text-soft);
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.25s;
-    font-size: 16px;
-    padding: 0;
-  }
-
-  .nav-icon-btn:hover {
-    border-color: var(--accent);
-    color: var(--accent);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(14, 165, 165, 0.2);
-  }
-
   .nav-hamburger {
     display: none;
     width: 40px;
@@ -230,8 +181,6 @@
     pointer-events: none;
     transition: all 0.25s ease;
   }
-
-  body.dark .mobile-menu { box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5); }
 
   .mobile-menu.open { transform: translateY(0); opacity: 1; pointer-events: auto; }
 
@@ -288,7 +237,6 @@
   .fab:active { transform: scale(0.94); }
 
   .fab.pdf { background: linear-gradient(135deg, #DC2626, #F87171); }
-  .fab.theme { background: linear-gradient(135deg, #F59E0B, #FCD34D); color: #422006; }
 
   .fab::after {
     content: attr(data-tooltip);
@@ -358,16 +306,6 @@
     z-index: 2;
   }
 
-  .avatar-wrapper::before {
-    content: '';
-    position: absolute;
-    inset: -6px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, var(--accent), var(--accent-2));
-    opacity: 0.6;
-    filter: blur(8px);
-  }
-
   .avatar {
     position: relative;
     width: 100%;
@@ -382,47 +320,7 @@
     color: var(--primary);
     box-shadow: 0 14px 34px rgba(0, 0, 0, 0.28);
     border: 4px solid rgba(255, 255, 255, 0.65);
-    overflow: hidden;
-    cursor: pointer;
-    transition: transform 0.3s, border-color 0.3s;
   }
-
-  .avatar:hover { transform: scale(1.05); border-color: white; }
-
-  /* الصورة الشخصية داخل الدائرة - عنصر img حقيقي ليُطبع في PDF */
-  .avatar img {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 50%;
-    display: block;
-    z-index: 1;
-  }
-
-  .avatar #avatarLetter {
-    position: relative;
-    z-index: 2;
-  }
-
-  .avatar-hint {
-    position: absolute;
-    bottom: -4px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: linear-gradient(135deg, var(--accent), var(--accent-2));
-    color: white;
-    font-size: 10px;
-    padding: 4px 12px;
-    border-radius: 14px;
-    white-space: nowrap;
-    font-weight: 700;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
-    z-index: 3;
-  }
-
-  #avatarInput { display: none; }
 
   header h1 {
     font-size: 34px;
@@ -499,7 +397,7 @@
     margin-top: 20px;
     box-shadow: var(--shadow);
     border: 1px solid var(--border);
-    transition: background 0.4s, border-color 0.4s, box-shadow 0.3s, transform 0.3s;
+    transition: box-shadow 0.3s, transform 0.3s;
     position: relative;
     overflow: hidden;
     scroll-margin-top: 80px;
@@ -667,7 +565,6 @@
     border-radius: 22px;
     font-size: 13px;
     font-weight: 600;
-    transition: all 0.25s;
     border: 1px solid rgba(14, 165, 165, 0.18);
     white-space: nowrap;
   }
@@ -678,7 +575,6 @@
     border-radius: 16px;
     margin-bottom: 14px;
     border-right: 3px solid var(--accent);
-    transition: all 0.3s;
     border-top: 1px solid var(--border);
     border-bottom: 1px solid var(--border);
     border-left: 1px solid var(--border);
@@ -739,7 +635,6 @@
     border-radius: 14px;
     margin-bottom: 9px;
     border: 1px solid var(--border);
-    transition: all 0.3s;
   }
 
   .lang-item:last-child { margin-bottom: 0; }
@@ -757,7 +652,6 @@
     height: 11px;
     border-radius: 50%;
     background: var(--border);
-    transition: all 0.3s;
   }
 
   .dot.active {
@@ -825,14 +719,8 @@
 
   @media (max-width: 380px) { .contact-grid { grid-template-columns: 1fr; } }
 
-  /* ============================================================
-     إعدادات الطباعة - الاسم أبيض + الصورة تُطبع في PDF
-     ============================================================ */
   @media print {
-    @page {
-      size: A4;
-      margin: 8mm;
-    }
+    @page { size: A4; margin: 8mm; }
 
     html, body {
       background: white !important;
@@ -856,7 +744,6 @@
     }
 
     .floating-actions,
-    .avatar-hint,
     .top-nav,
     .progress-bar,
     .mobile-menu,
@@ -870,7 +757,6 @@
       margin: 0 !important;
     }
 
-    /* ===== الهيدر - خلفية داكنة والنص أبيض ===== */
     header {
       background: linear-gradient(135deg, #0F2A4A 0%, #1B3E63 55%, #0EA5A5 130%) !important;
       border-radius: 8px !important;
@@ -882,11 +768,8 @@
     }
 
     header::before,
-    header::after {
-      display: none !important;
-    }
+    header::after { display: none !important; }
 
-    /* الاسم - أبيض دائماً */
     header h1 {
       font-size: 18pt !important;
       background: none !important;
@@ -900,7 +783,6 @@
       line-height: 1.3 !important;
     }
 
-    /* المسمى الوظيفي - أبيض فاتح */
     header .role {
       font-size: 11pt !important;
       color: #E0F2F1 !important;
@@ -910,9 +792,7 @@
       font-weight: 600 !important;
     }
 
-    header .role::after {
-      display: none !important;
-    }
+    header .role::after { display: none !important; }
 
     .avatar-wrapper {
       width: 80px !important;
@@ -920,11 +800,6 @@
       margin: 0 auto 10px !important;
     }
 
-    .avatar-wrapper::before {
-      display: none !important;
-    }
-
-    /* الدائرة الرمزية - نحافظ على شكلها وأنماطها */
     .avatar {
       font-size: 26pt !important;
       border-width: 2px !important;
@@ -933,30 +808,9 @@
       background: #FFFFFF !important;
       color: #0F2A4A !important;
       -webkit-text-fill-color: #0F2A4A !important;
-      overflow: hidden !important;
-      position: relative !important;
       border-radius: 50% !important;
       -webkit-print-color-adjust: exact !important;
       print-color-adjust: exact !important;
-    }
-
-    /* الصورة الشخصية - تُطبع في PDF */
-    .avatar img {
-      display: block !important;
-      position: absolute !important;
-      inset: 0 !important;
-      width: 100% !important;
-      height: 100% !important;
-      object-fit: cover !important;
-      border-radius: 50% !important;
-      z-index: 2 !important;
-      -webkit-print-color-adjust: exact !important;
-      print-color-adjust: exact !important;
-    }
-
-    /* إخفاء الحرف إذا كانت هناك صورة */
-    .avatar.has-image #avatarLetter {
-      display: none !important;
     }
 
     .contact-grid {
@@ -979,7 +833,6 @@
       -webkit-text-fill-color: #FFFFFF !important;
     }
 
-    /* ===== الأقسام ===== */
     section {
       border: 1px solid #d1d5db !important;
       border-radius: 6px !important;
@@ -1011,7 +864,6 @@
       box-shadow: none !important;
     }
 
-    /* ===== العناصر ===== */
     .exp-item {
       background: #F8FAFC !important;
       padding: 8px 12px !important;
@@ -1072,7 +924,6 @@
       color: #1F2937 !important;
     }
 
-    /* ===== المهارات ===== */
     .skills-group {
       margin-bottom: 10px !important;
       page-break-inside: auto !important;
@@ -1120,7 +971,6 @@
       break-inside: auto !important;
     }
 
-    /* ===== اللغات ===== */
     .lang-item {
       background: #F8FAFC !important;
       border: 1px solid #d1d5db !important;
@@ -1159,7 +1009,6 @@
       widows: 2 !important;
     }
 
-    /* ضمان ظهور أي نص شفاف */
     * {
       -webkit-text-fill-color: currentColor !important;
     }
@@ -1206,7 +1055,6 @@
       <a href="#langs">لغات</a>
     </div>
     <div class="nav-actions">
-      <button class="nav-icon-btn" id="navThemeBtn" title="تبديل الوضع">🌙</button>
       <button class="nav-hamburger" id="navHamburger" title="القائمة">
         <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
       </button>
@@ -1227,12 +1075,9 @@
 
   <header id="top">
     <div class="avatar-wrapper">
-      <div class="avatar" id="avatar" onclick="document.getElementById('avatarInput').click()">
-        <img id="avatarImg" alt="" style="display:none;">
+      <div class="avatar">
         <span id="avatarLetter">خ</span>
       </div>
-      <div class="avatar-hint">📷 تغيير الصورة</div>
-      <input type="file" id="avatarInput" accept="image/*">
     </div>
     <h1>خالد محمد الرمضان</h1>
     <p class="role">مهندس مدني – خريج 2026</p>
@@ -1247,8 +1092,7 @@
         <span>إدلب، سوريا</span>
       </div>
       <div class="contact-item" style="background-color: #134E4A;">
-       
-        <span> متاح للعمل في كل المحافظات</span>
+        <span> متاح للعمل   </span>
       </div>
     </div>
   </header>
@@ -1281,7 +1125,7 @@
       <ul>
         <li>المعدل التراكمي: %73.4</li>
         <li>مقررات بارزة: التحليل الإنشائي، الخرسانة المسلحة، ميكانيكا الموائع، إدارة المشاريع</li>
-        <li>مشروع التخرج: تصميم وتحليل جسر خرساني مسلح</li>
+        <li>مشروع التخرج: تصميم بناء طابقي</li>
       </ul>
     </div>
   </section>
@@ -1331,7 +1175,6 @@
 
     <div class="exp-item">
       <h3>مهندس مدني – قسم التصميم الإنشائي</h3>
-      
       <ul>
         <li>إعداد المخططات الإنشائية لمشاريع سكنية على AutoCAD.</li>
         <li>تحليل الأحمال وتصميم العناصر الخرسانية باستخدام SAP2000.</li>
@@ -1340,11 +1183,7 @@
     </div>
 
     <div class="exp-item">
-      <h3>مهندس موقع   </h3>
-      <div class="company">
-    
-        
-      </div>
+      <h3>مهندس موقع</h3>
       <ul>
         <li>الإشراف الميداني على أعمال صب الخرسانة وتوثيق مراحلها.</li>
         <li>متابعة تنفيذ الأعمال حسب المخططات ومطابقتها للمواصفات.</li>
@@ -1353,16 +1192,13 @@
     </div>
 
     <div class="exp-item">
-      <h3>متدرب هندسي   </h3>
-   
+      <h3>متدرب هندسي</h3>
       <ul>
         <li>حضور ورشة تدريبية في قراءة المخططات الهندسية.</li>
         <li>تنفيذ تمارين تطبيقية على حساب الكميات وتقدير التكاليف.</li>
         <li>إعداد تقرير ختامي عن مشروع تصميم صغير بمشاركة فريق.</li>
       </ul>
     </div>
-
-   
   </section>
 
   <section id="projects">
@@ -1372,14 +1208,15 @@
     </div>
 
     <div class="exp-item">
-      <h3>مشروع التخرج – تصميم جسر خرساني</h3>
+      <h3>مشروع التخرج – تصميم بناء طابقي</h3>
       <div class="company">
         <span>مشروع مادة الخرسانة المسلحة</span>
         <span class="badge gold">2026</span>
       </div>
       <ul>
-        <li>تحليل الأحمال وتصميم المقاطع باستخدام SAP2000.</li>
-        <li>إعداد المخططات التنفيذية على AutoCAD.</li>
+        <li>تحليل الأحمال وتصميم البلاطات والجسور والأعمدة باستخدام SAP2000.</li>
+        <li>تصميم الجدران الاستنادية والأساسات وفق الكود العربي السوري.</li>
+        <li>إعداد المخططات التنفيذية (المساقط والقطاعات والتفاصيل) على AutoCAD.</li>
       </ul>
     </div>
   </section>
@@ -1421,7 +1258,6 @@
 
 <div class="floating-actions">
   <button class="fab pdf" id="pdfBtn" data-tooltip="حفظ كـ PDF">📥</button>
-  <button class="fab theme" id="themeBtn" data-tooltip="الوضع الليلي">🌙</button>
 </div>
 
 <div class="toast" id="toast">
@@ -1430,9 +1266,6 @@
 </div>
 
 <script>
-  const body = document.body;
-  const themeBtn = document.getElementById('themeBtn');
-  const navThemeBtn = document.getElementById('navThemeBtn');
   const toast = document.getElementById('toast');
   const toastMsg = document.getElementById('toastMsg');
 
@@ -1443,77 +1276,6 @@
     clearTimeout(toastTimer);
     toastTimer = setTimeout(() => toast.classList.remove('show'), 2800);
   }
-
-  function updateThemeIcons() {
-    const isDark = body.classList.contains('dark');
-    themeBtn.textContent = isDark ? '☀️' : '🌙';
-    themeBtn.dataset.tooltip = isDark ? 'الوضع النهاري' : 'الوضع الليلي';
-    navThemeBtn.textContent = isDark ? '☀️' : '🌙';
-    navThemeBtn.title = isDark ? 'الوضع النهاري' : 'الوضع الليلي';
-  }
-
-  const savedTheme = localStorage.getItem('cv-theme');
-  if (savedTheme === 'dark') body.classList.add('dark');
-  updateThemeIcons();
-
-  function toggleTheme() {
-    body.classList.toggle('dark');
-    localStorage.setItem('cv-theme', body.classList.contains('dark') ? 'dark' : 'light');
-    updateThemeIcons();
-  }
-
-  themeBtn.addEventListener('click', toggleTheme);
-  navThemeBtn.addEventListener('click', toggleTheme);
-
-  /* ============================================================
-     إدارة الصورة الشخصية - تستخدم <img> حقيقي ليُطبع في PDF
-     ============================================================ */
-  const avatarInput = document.getElementById('avatarInput');
-  const avatar = document.getElementById('avatar');
-  const avatarImg = document.getElementById('avatarImg');
-  const avatarLetter = document.getElementById('avatarLetter');
-
-  // استرجاع الصورة المحفوظة
-  const savedAvatar = localStorage.getItem('cv-avatar');
-  if (savedAvatar) {
-    avatarImg.src = savedAvatar;
-    avatarImg.style.display = 'block';
-    avatarLetter.style.display = 'none';
-    avatar.classList.add('has-image');
-  }
-
-  avatarInput.addEventListener('change', (e) => {
-    const file = e.target.files[0];
-    if (!file) return;
-
-    if (file.size > 2 * 1024 * 1024) {
-      showToast('⚠️ حجم الصورة كبير (أقصى 2MB)');
-      return;
-    }
-
-    const reader = new FileReader();
-    reader.onload = (event) => {
-      const dataUrl = event.target.result;
-
-      // عرض الصورة في عنصر <img> حقيقي
-      avatarImg.src = dataUrl;
-      avatarImg.style.display = 'block';
-      avatarLetter.style.display = 'none';
-      avatar.classList.add('has-image');
-
-      // حفظ في localStorage
-      try {
-        localStorage.setItem('cv-avatar', dataUrl);
-      } catch (err) {
-        console.warn('تعذّر حفظ الصورة محليًا');
-        showToast('⚠️ لم يتم حفظ الصورة (المساحة ممتلئة)');
-        return;
-      }
-
-      showToast('✓ تم تحديث الصورة');
-    };
-    reader.readAsDataURL(file);
-  });
 
   const topNav = document.getElementById('topNav');
   const navHamburger = document.getElementById('navHamburger');
